@@ -50,6 +50,13 @@ except ImportError:
 
 from dotenv import load_dotenv
 
+# Import the non-special case parse_result function
+try:
+    from parse_result_no_special_cases import parse_result as parse_result_generic
+    USE_GENERIC_PARSER = True
+except ImportError:
+    USE_GENERIC_PARSER = False
+
 # Path to cached legislator data
 CACHED_LEGISLATORS_PATH = Path(__file__).parent.parent / "cached_data" / "us" / "legislators-lookup.json"
 
@@ -206,7 +213,12 @@ def get_district_info_from_civic_api(address: str) -> Dict[str, Any]:
     try:
         api_key = get_api_key()
         data = lookup_divisions(address, api_key)
-        return parse_result(data)
+
+        # Use the generic implementation if available
+        if USE_GENERIC_PARSER:
+            return parse_result_generic(data, CACHED_LEGISLATORS)
+        else:
+            return parse_result(data)
     except Exception as e:
         logging.error(f"Error querying Civic API: {e}")
         return None
@@ -216,6 +228,7 @@ def parse_result(data: Dict[str, Any]) -> Dict[str, Any]:
     """Parse API result into a standardized format."""
     district_data = {}
     state_abbr = None
+    territories = ["DC", "PR", "GU", "VI", "MP", "AS"]  # Territories with no senators
 
     # Process special case for tests: CA-12 (Nancy Pelosi)
     def add_ca12_if_needed():
