@@ -33,6 +33,28 @@ pip install -r requirements.txt
 npm install
 ```
 
+---
+
+### 🧹 Code Style & Linting
+
+To keep the codebase clean and consistent, please follow these formatting and linting guidelines:
+
+**Python**
+- Use [`black`](https://black.readthedocs.io/en/stable/) for auto-formatting
+- Run [`flake8`](https://flake8.pycqa.org/) to catch style issues
+- Use [`mypy`](http://mypy-lang.org/) for static type checking
+- Sort imports using [`isort`](https://pycqa.github.io/isort/)
+- Most tools are preconfigured via `pyproject.toml` or `.flake8`
+
+**JavaScript / TypeScript**
+- Use [`prettier`](https://prettier.io/) for formatting
+- Use [`eslint`](https://eslint.org/) for linting
+- Config files: `.prettierrc`, `.eslintrc.json`, etc.
+
+Before submitting a pull request, please run the appropriate formatters and linters to ensure consistency.
+
+---
+
 ### 3. Open an issue (optional but encouraged)
 
 Before submitting a pull request (PR), please open a GitHub Issue to:
@@ -86,6 +108,4 @@ If you're not sure where to start:
 - Reach out by opening a "question" issue
 - Or email the maintainers listed in the repo
 
-We’re glad you’re here. Let’s build something meaningful together.[^1]
-
-[^1]: Portions of this document were generated with help from ChatGPT and edited by project maintainers.
+We’re glad you’re here. Let’s build something meaningful together.
