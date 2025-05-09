@@ -4,6 +4,8 @@
 
 **civiclookup** is an open-source project that helps developers, nonprofits, journalists, and civic technologists find out *who represents a given address* — starting with the United States, and designed to scale globally.
 
+> **Note:** This is an **alpha release** in **active development**. Not all functionality is complete, and data coverage may be limited. We welcome contributors and testers to help improve the project.
+
 🔍 **What it does (coming soon)**
 - Look up U.S. federal legislators (House & Senate) by address
 - Built to support international contributions and datasets
