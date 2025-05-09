@@ -25,7 +25,7 @@ cd civiclookup
 pip install -r requirements.txt
 ```
 
-**For JavaScript:**
+**For JavaScript (coming soon):**
 - Use Node.js 18+
 - Install dependencies:
 
